@@ -77,3 +77,5 @@ Además de la documentación que genera el mismo React, se evidencia el funciona
 ![alt text](image-1.png)
 
 ![alt text](image-2.png)
+# payment_process_RT
+This repository shows the information of a basic payment process CRUD in React.
