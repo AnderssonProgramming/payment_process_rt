@@ -1,81 +1,124 @@
-# Getting Started with Create React App
+# 🖥️ ECICredit Frontend – React App para Gestión de Pagos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🎯 Descripción del Proyecto
 
-## Available Scripts
+Este es el frontend del MVP de ECICredit, una plataforma de pagos construida para permitir a los usuarios:
 
-In the project directory, you can run:
+- Registrar pagos con múltiples artículos
+- Consultar su historial de pagos
+- Visualizar resultados con feedback claro e interactivo
+- Disfrutar de una interfaz moderna, intuitiva y estilizada
 
-### `npm start`
+Este cliente fue desarrollado en **React.js** y se conecta al backend desplegado en Azure a través de **Axios**, consumiendo una API RESTful.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tecnologías Utilizadas
 
-### `npm test`
+| Herramienta        | Uso principal                           |
+|--------------------|------------------------------------------|
+| React.js           | Framework principal de UI                |
+| Axios              | Cliente HTTP para llamadas al backend    |
+| Styled Components  | Estilos modernos y encapsulados en JS    |
+| JavaScript (ES6+)  | Lógica de componentes y hooks            |
+| HTML + CSS         | Base de estructura visual                |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🔌 Conexión con Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La aplicación usa **Axios** para enviar y recibir información desde el backend en Spring Boot.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Configuración de la URL del Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. De manera local, es decir está embebido con la URL propia:
+```env
+API_BASE_URL="http://localhost:8080/api/payments"
+```
 
-### `npm run eject`
+2. En el código (por ejemplo en `PaymentForm.js` o `PaymentList.js`), las llamadas se hacen así:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```js
+import axios from "axios";
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const API_BASE_URL = "http://localhost:8080/api/payments";
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+axios.post(`${API_BASE_URL}/payments`, data);
+axios.get(`${API_BASE_URL}/payments/${userId}`);
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🚀 ¿Cómo ejecutar el proyecto localmente?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Requisitos previos:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Node.js 18+
+- npm 9+
 
-### Code Splitting
+### Instrucciones:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+git clone https://github.com/AnderssonProgramming/payment_process_rt.git
+cd payment_process_rt
+npm install
+npm start
+```
 
-### Analyzing the Bundle Size
+La app estará disponible en: [http://localhost:3000](http://localhost:3000)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🧩 Estructura de Componentes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+/src
+ ├── components
+ │    ├── PaymentForm.js    ← Formulario para ingresar pagos
+ │    ├── PaymentList.js    ← Lista interactiva de pagos del usuario
+ │    └── PaymentItem.js    ← Tarjeta de detalle para cada pago
+ ├── App.js                 ← Vista principal y control del estado
+ └── index.js               ← Punto de entrada del renderizado
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ✨ Funcionalidades Clave
 
-### Deployment
+- [x] Registro de múltiples artículos en una transacción
+- [x] Validación de fechas y campos requeridos
+- [x] Cálculo de totales desde el backend (no manipulables desde el cliente)
+- [x] Consulta de pagos por usuario
+- [x] Visualización interactiva y estilizada
+- [x] Reinicio del formulario tras cada pago exitoso
+- [x] Componente de historial desplegable (botón toggle)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🖼️ Evidencias Visuales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Registro exitoso de pago ✅
+- Validación de errores ❌
+- Vista del historial de pagos 📋
 
+![alt text](assets/image-3.png)
+![alt text](assets/image-4.png)
+![alt text](assets/image-5.png)
+![alt text](assets/image-6.png)
 
-Además de la documentación que genera el mismo React, se evidencia el funcionamiento del CRUD de producto para este caso de negocio.
+---
 
-![alt text](image.png)
+## 💡 Recomendaciones
 
-![alt text](image-1.png)
+- El backend debe estar corriendo (local o en Azure) para que las peticiones funcionen.
+- Usa `npm run build` para crear la versión optimizada para producción.
+- Puedes desplegar esta app fácilmente en Vercel, Netlify o Azure Static Web Apps.
 
-![alt text](image-2.png)
-# payment_process_RT
-This repository shows the information of a basic payment process CRUD in React.
+---
+
+## 🧑‍💻 Autor
+
+Proyecto desarrollado por:  
+*Andersson David Sánchez Méndez*  
+
+Para el parcial de **CVDS - Segundo Tercio**
